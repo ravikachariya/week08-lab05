@@ -1,0 +1,43 @@
+<!-- Define a function to render each event -->
+<% function renderEvent(event) { %>
+    <div class="item-preview">
+      <a href="/single-event/<%= event._id %>">
+        <h2>Title: <%= event.title %></h2>
+        <h3>Date: <%= event.date %></h3>
+        <h3>Description: <%= event.description %></h3>
+      </a>
+    </div>
+  <% } %>
+  
+  
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Events</title>
+      <link rel="stylesheet" href="/css/styles.css" />
+      <!-- Link to external stylesheet -->
+    </head>
+    <body>
+      <nav class="navbar">
+        <h1>My Events</h1>
+        <div class="links">
+          <a href="/">Home</a
+          ><a class="new-item-link" href="/addevent">New Event</a>
+        </div>
+      </nav>
+  
+      <div class="content">
+        <div class="home">
+          <div class="item-list">
+            <% if (events.length > 0) { %>
+            <!-- Call the renderEvent function for each event -->
+            <% events.forEach(renderEvent); %> <% } else { %>
+            <p>No events found.</p>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </body>
+  </html>
